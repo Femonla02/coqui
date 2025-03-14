@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://webmail.coquinet.mail2world.com/app/msg_prev.asp?guid=123 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>loading...</title>
+<meta content="en-us" http-equiv="Content-Language">
+
+<meta content="en-us" http-equiv="Content-Language">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+    <style>
+    
+    html{padding:0px !important;margin:0px !important;font: 13px arial !important}
+    
+    body{
+	BORDER-BOTTOM: #ffffff 0px solid !important; 
+	BORDER-LEFT: #ffffff 0px solid !important; 
+	FONT-FAMILY: Tahoma; FONT-SIZE: 13px !important; 
+	OVERFLOW:none; BORDER-TOP: #ffffff 0px solid !important; 
+	BORDER-RIGHT: #ffffff 0px solid !important;
+	margin:0px !important;
+}
+    
+    .IMGTD{FONT-SIZE: 12px; FONT-FAMILY: Tahoma}
+    .IMGA{color:#2E85E4; text-decoration: underline; cursor:hand; font-size:11px}
+    .IMGC{color:#2E85E4; text-decoration: none}
+    .IMGCS{color:#C30000; FONT-SIZE: 11px; text-decoration: underline; cursor:hand}
+    .IMGI{color:#000000; FONT-SIZE: 11px}
+    .GH{color:#7B7B7D; FONT-SIZE: 11px}
+
+a.instagramPic
+{
+	cursor: url(../../app/ress/theme/V12/IMG/zoom-in.cur), url(../../app/ress/theme/V12/IMG/zoom-in.cur), default;
+    max-width: 150px;
+    max-height: 150px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    font-family: arial,helvetica,sans-serif;
+    font-size: 11px;
+    box-shadow: 2px 2px 2px rgb(202, 202, 202);
+    
+    
+opacity: 1;
+
+}
+a.instagramPic:hover 
+{ 
+	cursor: url(../../app/ress/theme/V12/IMG/zoom-in.cur), url(../../app/ress/theme/V12/IMG/zoom-in.cur), default;
+
+	 background-color:#e5f3fb;
+	 box-shadow: 2px 2px 2px rgb(255, 255, 255);
+	 transition: background .1s ease-in-out, opacity .15s ease-in-out;
+   -moz-transition: background .1s ease-in-out, opacity .25s ease-in-out;
+   -webkit-transition: background .1s ease-in-out, opacity .25s ease-in-out;
+   
+   
+   opacity: .5;
+
+}
+
+
+
+a.instagramPicYoutube
+{
+	cursor: url(../../app/ress/theme/V12/IMG/1462465489_play_alt.cur), url(../../app/ress/theme/V12/IMG/1462465489_play_alt.cur), default;
+    max-width: 150px;
+    max-height: 150px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    font-family: arial,helvetica,sans-serif;
+    font-size: 11px;
+    box-shadow: 2px 2px 2px rgb(202, 202, 202);
+    
+    
+opacity: 1;
+
+}
+a.instagramPicYoutube:hover 
+{ 
+	cursor: url(../../app/ress/theme/V12/IMG/1462465489_play_alt.cur), url(../../app/ress/theme/V12/IMG/1462465489_play_alt.cur), default;
+
+	 background-color:#e5f3fb;
+	 box-shadow: 2px 2px 2px rgb(255, 255, 255);
+	 transition: background .1s ease-in-out, opacity .15s ease-in-out;
+   -moz-transition: background .1s ease-in-out, opacity .25s ease-in-out;
+   -webkit-transition: background .1s ease-in-out, opacity .25s ease-in-out;
+   
+   
+   opacity: .5;
+
+}
+
+
+
+
+
+
+a.msg_prev_attach_action
+{
+	
+	opacity: .3;
+	
+}
+
+a.msg_prev_attach_action:hover
+{
+	
+	opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+	
+}
+
+	a{
+	color: #1772c6 !important;
+	text-decoration:none !important;
+
+}
+
+	a:hover{
+	 text-decoration:underline !important
+}
+
+	.UploadFile{
+	 text-decoration:none !important
+}
+
+
+
+
+    </style>
+
+
+</head>
+<body id="PageBody" onclick="parent.fnDocOnClick()" leftmargin="0" topmargin="1" marginheight="0" marginwidth="0">
+
+	<div id="msg_body">
+	    <div id="Ifrm_Msg_body">
+	        <table id="table1" border="0" width="100%">
+	        <tbody>
+	        <tr>
+	            <td style="FONT-FAMILY: Tahoma; COLOR: #798079; FONT-SIZE: 13px" align="middle"></td>
+	        </tr>
+	        </tbody>
+	        </table>
+	    </div>
+	    <br><br>
+	    <div id="DIVAttachPrev"></div>
+    </div>
+    
+    <!--START SOURCE CODE FOR ATTACH =============================== -->
+	<script language="Javascript">
+	<!--
+
+	function GetHeight()
+	{
+		//alert('ok');
+		//return(YAHOO.util.Dom.getClientHeight());
+	
+	}
+	
+	function C(Obj, iValue)
+	{
+		if ( iValue == 1)
+		{
+			index = Obj.getAttribute("AI");
+			document.getElementById( "TRI0" + index ).style.backgroundColor = "#FFFFEA";
+			document.getElementById( "TRI1" + index ).style.backgroundColor = "#FFFFEA";
+	
+			Obj.style.border = '1px solid #FBD31B';
+			return;
+		}
+	
+		if ( iValue == 0)
+		{
+			try
+			{
+				index = Obj.getAttribute("AI")
+				if (document.getElementById( "CBP" + index ).checked)
+					return;
+				document.getElementById( "TRI0" + index ).style.backgroundColor = "#F4F4F4";
+				document.getElementById( "TRI1" + index ).style.backgroundColor = "#F4F4F4";
+				Obj.style.border = '1px solid #E0DFE3';
+			}	catch(err) {}
+			return;
+		}
+	
+		if ( iValue == 2)
+		{
+			//alert(Obj.parentNode.parentNode.outerHTML)
+			Index = Obj.getAttribute("AI")
+			location = "../../FileCabinet/Download.asp?User=Msg&FID=" + m_aCAtt[Index].FileID
+		}
+	}
+	
+	function C2(Obj, iValue, MsgID)
+	{
+		if ( iValue == 1)
+		{
+			Obj.style.cursor = "hand";
+			Obj.style.backgroundColor = "#DDDDDD";
+			return;
+		}
+	
+		if ( iValue == 0)
+		{
+			Obj.style.cursor = "default";
+			Obj.style.backgroundColor = "";
+			return;
+		}
+	}
+	
+
+
+	//-->
+	</script>
+<!--START SOURCE CODE FOR ATTACH =============================== -->
+    
+
+
+ 
+</body></html>

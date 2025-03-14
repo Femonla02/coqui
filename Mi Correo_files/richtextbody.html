@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)http://webmail.coquinet.mail2world.com/app/richtextbody.asp -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>Untitled 1</title>
+
+<script type="text/javascript" src="./jquery.min.js.download"></script>
+
+
+<style>
+	body{
+	
+		-moz-box-sizing:border-box;
+	    -webkit-box-sizing:border-box;
+	    box-sizing:border-box;
+	
+		color: black; background-color:#fff !important; font-family:sans-serif !important; font-size:small !important; overflow: auto !important; margin:0px !important; padding:0px !important; border:0px green solid !important;
+	
+	}
+	
+	 html{
+	 padding:10px;
+	 
+	 -moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+}
+	
+	.rteDiv{
+		 font-family:sans-serif !important; font-size:small !important; background-color:#fff !important
+	}
+	
+	a{
+	color: #21A0E3
+}
+
+</style>
+
+
+<script>
+
+//@@@@ :::::::::::
+	
+	/*
+	$(document).ready(function() {    
+	
+		$(document).click(function(event) {
+	  	  	parent.fnDocOnClick();
+	});
+
+		
+	});
+*/
+
+
+var savedSel;
+
+function saveSelection() {
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+            var ranges = [];
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                ranges.push(sel.getRangeAt(i));
+            }
+            return ranges;
+        }
+    } else if (document.selection && document.selection.createRange) {
+        return document.selection.createRange();
+    }
+    return null;
+}
+
+
+// Get user selection text on page
+function fnTEST() {
+
+alert(4444);
+
+}
+
+
+
+// Get user selection text on page
+function getSelectedText() {
+    if (window.getSelection) {
+        return window.getSelection();
+    } else if (document.selection) {
+        return document.selection.createRange().text;
+    }
+    return '';
+}
+
+function restoreSelection(savedSel) {
+    if (savedSel) {
+        if (window.getSelection) {
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            for (var i = 0, len = savedSel.length; i < len; ++i) {
+                sel.addRange(savedSel[i]);
+            }
+        } else if (document.selection && savedSel.select) {
+            savedSel.select();
+        }
+    }
+}
+
+function createLink() {
+    // There's actually no need to save and restore the selection here. This is just an example.
+    
+    alert(9999);
+    
+    savedSel = saveSelection();
+    var url = 'http://www.cnn.com';
+    restoreSelection(savedSel);
+    document.execCommand("CreateLink", false, url);
+}
+
+function fnSetFocus() {
+
+alert(5);
+
+var s = window.getSelection(),
+    r = document.createRange();
+r.setStart(p, 0);
+r.setEnd(p, 0);
+s.removeAllRanges();
+s.addRange(r);
+}
+
+
+function fnSaveSelection()
+{
+	savedSel = saveSelection();
+}
+
+function fnRestoreSelection()
+{
+	restoreSelection(savedSel);
+}
+
+
+function fnAlertME()
+{
+
+	alert('alert me');
+}
+
+		var lastScrollTop = 0;
+		$(window).scroll(function(event){
+		
+			
+			
+		   //var st = $(this).scrollTop();
+		   
+		   parent.fnDocOnClick();
+		   //parent.fnUpdateRTEScrollPos(st);
+		   
+		   /*
+		   //if (st > lastScrollTop){
+		       // downscroll code
+		       
+		   } else {
+		      // upscroll code
+		      
+		   }
+		   lastScrollTop = st;
+		   */
+		});
+
+if(document.addEventListener)
+{
+   //document.addEventListener('keyup', top.fnRTEUpdate, false);
+   //document.addEventListener('mouseup', fnAlertME, false);
+}
+
+
+</script></head>
+
+
+
+
+
+
+<body style="height: 200px;">
+	<div class="rteDiv" style="display:inline-block"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
